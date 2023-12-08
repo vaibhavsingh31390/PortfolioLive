@@ -99,6 +99,7 @@
   }
   .heading--title {
     font-size: 3rem;
+    width: fit-content;
   }
   .Links--wrapper {
     margin-top: 0 !important;
