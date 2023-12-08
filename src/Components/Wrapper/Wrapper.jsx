@@ -11,7 +11,7 @@ const Wrapper = (props) => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-12">
-            <div className="mt-4 mb-4">
+            <div>
               <div
                 className="card"
                 style={{ backgroundColor: "transparent", border: "none" }}
