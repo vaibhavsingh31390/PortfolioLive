@@ -9,7 +9,7 @@ const Header = () => {
     <Navbar expand="lg" className="navbar_Main py-3">
       <Container>
         <Navbar.Brand
-          href="#home"
+          href="/"
           className="header_Logo_Container d-flex align-items-center"
         >
           <img
