@@ -98,10 +98,14 @@
     margin-top: 50px;
   }
   .heading--title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   .Links--wrapper {
-    margin-top: 2.5rem !important;
+    margin-top: 0 !important;
+    position: fixed;
+    left: 0;
+    bottom: 35px;
+    padding: 0px 28px;
   }
 }
 
