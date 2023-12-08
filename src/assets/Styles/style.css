@@ -98,7 +98,10 @@
     margin-top: 50px;
   }
   .heading--title {
-    font-size: 2.95rem;
+    font-size: 2rem;
+  }
+  .Links--wrapper {
+    margin-top: 2.5rem !important;
   }
 }
 
