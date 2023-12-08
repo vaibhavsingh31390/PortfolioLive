@@ -19,7 +19,7 @@ const ButtonLink = ({ icon, link, ntab = false }) => {
 
 const Home = () => {
   return (
-    <div className="portfolio-wrapper" style={{ marginTop: 55 }}>
+    <div className="portfolio-wrapper" style={{ marginTop: 0 }}>
       <Row className="align-items-end">
         <Col md={12} sm={12}>
           <h1 className="secondary-text-color heading--title">
