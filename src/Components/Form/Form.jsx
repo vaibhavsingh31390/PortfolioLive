@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import contactContext from "../../store/contact-context";
 import { Form, Button, Card } from "react-bootstrap";
@@ -11,7 +11,14 @@ import { toast } from "react-toastify";
 
 const ContactForm = () => {
   // eslint-disable-next-line no-unused-vars
+  const [isActive, setIsActive] = useState(false);
   const ctx = useContext(contactContext);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsActive(true);
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [ctx]);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -112,7 +119,7 @@ const ContactForm = () => {
           </Card>
         ) : (
           <Form
-            className={`contact--form`}
+            className={`contact--form ${isActive ? "active" : ""}`}
             onSubmit={handleSubmit}
             style={{ color: "#222831" }}
           >
