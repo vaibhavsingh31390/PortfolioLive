@@ -7,15 +7,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import CloseSvg from "../../assets/Images/Icons/close.svg";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Transition } from "react-transition-group";
 
-// Define your transition styles
-const transitionStyles = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 },
-  exited: { opacity: 0 },
-};
 
 const ContactForm = () => {
   // eslint-disable-next-line no-unused-vars
@@ -102,7 +94,6 @@ const ContactForm = () => {
 
   return (
     <>
-      <Transition in={ctx.contacted} timeout={1000}>
         {ctx.contacted ? (
           <Card className="contacted--message d-flex justify-content-center align-item-center">
             <Button
@@ -230,7 +221,6 @@ const ContactForm = () => {
             </div>
           </Form>
         )}
-      </Transition>
     </>
   );
 };
