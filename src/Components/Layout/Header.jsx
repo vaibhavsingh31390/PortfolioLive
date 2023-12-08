@@ -1,5 +1,5 @@
 import { Navbar, Container, Button } from "react-bootstrap";
-import logo from "./../../Assets/Images/logo.png";
+import logo from "./../../assets/Images/logo.png";
 import { useContext } from "react";
 import contactContext from "../../store/contact-context";
 
