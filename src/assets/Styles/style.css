@@ -158,6 +158,10 @@
   .contact--form .submit--form--btn {
     width: 100% !important;
   }
+  .contacted--message{
+    min-height: 25vh;
+    width: 90%;
+  }
 }
 .contact--form Button {
   background-color: #222831;
