@@ -2,62 +2,50 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 .primary-bg-color {
-  background-color: #eeeeee;
-}
+  background-color: #EEEEEE; }
 
 .secondary-bg-color {
-  background-color: #222831;
-}
+  background-color: #222831; }
 
 .primary-text-color {
-  color: #393e46;
-  font-family: "Josefin Sans", sans-serif;
-}
+  color: #393E46;
+  font-family: 'Josefin Sans', sans-serif; }
 
 .secondary-text-color {
   color: #fc7114;
-  font-family: "Josefin Sans", sans-serif;
-}
+  font-family: 'Josefin Sans', sans-serif; }
 
 .white-text-color {
   color: #ffffff;
-  font-family: "Josefin Sans", sans-serif;
-}
+  font-family: 'Josefin Sans', sans-serif; }
 
 .navbar_Main {
-  background-color: transparent;
-}
-.navbar_Main .header_Btn_Contact,
-.navbar_Main .header_Btn_Message {
-  background-color: #fc7114;
-  border: none;
-  padding: 8px 15px;
-  transition: 0.25s ease-in-out;
-}
-.navbar_Main .header_Btn_Contact:hover,
-.navbar_Main .header_Btn_Message:hover {
-  background-color: #222831;
-  color: #fc7114;
-}
+  background-color: transparent; }
+  .navbar_Main .header_Btn_Contact,
+  .navbar_Main .header_Btn_Message {
+    background-color: #fc7114;
+    border: none;
+    padding: 8px 15px;
+    transition: 0.25s ease-in-out; }
+    .navbar_Main .header_Btn_Contact:hover,
+    .navbar_Main .header_Btn_Message:hover {
+      background-color: #222831;
+      color: #fc7114; }
 
 .hero-container-main {
-  position: relative;
-}
-.hero-container-main .hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-.hero-container-main .hero-content {
-  min-height: calc(100vh - 74px);
-}
+  position: relative; }
+  .hero-container-main .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; }
+  .hero-container-main .hero-content {
+    min-height: calc(100vh - 74px); }
 
 .fallback-container {
   width: 100% !important;
@@ -67,40 +55,31 @@
   top: 0px !important;
   left: 0px !important;
   background-color: #222831;
-  pointer-events: none;
-}
+  pointer-events: none; }
 
 .Links {
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  outline: none !important;
-}
+  outline: none !important; }
 
 .heading--title {
-  font-size: 4rem;
-}
+  font-size: 4rem; }
 
 @media (max-width: 767px) {
   .portfolio-wrapper {
-    margin-top: 30px !important;
-  }
+    margin-top: 30px !important; }
   .Links {
-    padding: 0 !important;
-  }
+    padding: 0 !important; }
   .Links--wrapper {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-  }
+    align-items: center; }
   .button--wrapper--Links {
-    margin-top: 50px;
-  }
+    margin-top: 50px; }
   .heading--title {
-    font-size: 3rem;
-  }
-}
+    font-size: 3rem; } }
 
 .contact-overlay {
   position: fixed;
@@ -109,8 +88,7 @@
   background-color: rgba(0, 0, 0, 0.45);
   height: 100svh;
   width: 100%;
-  z-index: 9997;
-}
+  z-index: 9997; }
 
 .contacted--message {
   position: fixed;
@@ -121,20 +99,21 @@
   padding: 2rem;
   border-radius: 10px;
   z-index: 9998;
-  min-height: 50vh;
-}
+  min-height: 50vh; }
+  @media (max-width: 767px) {
+    .contacted--message {
+      min-height: 25vh;
+      width: 90%; } }
 
 .close-form {
   position: absolute;
   top: 5px;
   right: 5px;
   background-color: transparent !important;
-  border: none !important;
-}
-.close-form img {
-  height: 24px !important;
-  height: 24px !important;
-}
+  border: none !important; }
+  .close-form img {
+    height: 24px !important;
+    height: 24px !important; }
 
 .contact--form {
   position: fixed;
@@ -145,58 +124,57 @@
   background-color: #fc7114;
   padding: 2rem;
   border-radius: 10px;
-  z-index: 9998;
-}
-.contact--form label {
-  font-family: "Josefin Sans", sans-serif;
-}
-@media (max-width: 767px) {
-  .contact--form {
-    width: 95%;
-    padding: 1.5rem;
-  }
-  .contact--form .submit--form--btn {
-    width: 100% !important;
-  }
-  .contacted--message{
-    min-height: 25vh;
-    width: 90%;
-  }
-}
-.contact--form Button {
-  background-color: #222831;
-  color: #fc7114;
-  border: none;
-  padding: 8px 15px;
-  transition: 0.25s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.contact--form Button:hover {
-  background-color: #ffffff;
-  color: #fc7114;
-}
-.contact--form Button .loader-circle {
-  width: 20px;
-  height: 20px;
-}
+  z-index: 9998; }
+  .contact--form label {
+    font-family: 'Josefin Sans', sans-serif; }
+  @media (max-width: 767px) {
+    .contact--form {
+      width: 95%;
+      padding: 1.5rem; }
+      .contact--form .submit--form--btn {
+        width: 100% !important; } }
+  .contact--form Button {
+    background-color: #222831;
+    color: #fc7114;
+    border: none;
+    padding: 8px 15px;
+    transition: 0.25s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .contact--form Button:hover {
+      background-color: #ffffff;
+      color: #fc7114; }
+    .contact--form Button .loader-circle {
+      width: 20px;
+      height: 20px; }
 
 .Toastify__toast-container {
-  z-index: 999999;
-}
+  z-index: 999999; }
 
 #toaster--class {
   background-color: #222831 !important;
-  color: #fc7114 !important;
-}
-#toaster--class .Toastify__toast-icon svg {
-  fill: #fc7114 !important;
-}
-#toaster--class .Toastify__progress-bar {
-  background-color: #fc7114 !important;
-}
+  color: #fc7114 !important; }
+  #toaster--class .Toastify__toast-icon svg {
+    fill: #fc7114 !important; }
+  #toaster--class .Toastify__progress-bar {
+    background-color: #fc7114 !important; }
 
 #toaster--class .Toastify__icon {
-  color: white !important;
-}
+  color: white !important; }
+
+.contact-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; }
+  .contact-overlay.active {
+    opacity: 1;
+    visibility: visible; }
+
+.contact--form {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; }
+  .contact--form.active {
+    opacity: 1;
+    visibility: visible; }
