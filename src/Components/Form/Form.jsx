@@ -205,7 +205,7 @@ const ContactForm = () => {
 
             <Form.Group controlId="formMessage" className="mb-2">
               <ReCAPTCHA
-                sitekey="6Ld96SkpAAAAAI2hOIDVWJetpLvGDECYmTXHO6Xz" // Replace with your site key
+                sitekey="6LdQZCopAAAAALAHhiieLq62K0NDoNNcg8OBm52l" 
                 onChange={handleRecaptchaChange}
               />
             </Form.Group>
