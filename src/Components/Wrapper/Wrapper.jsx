@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import Animate from "../Layout/animate";
+import Animate from "../Layout/Animate";
 
 const Wrapper = (props) => {
   return (
