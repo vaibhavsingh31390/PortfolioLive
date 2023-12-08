@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
-import reactIcon from "./../../Assets/Images/technology/react.svg";
-import codeigniterIcon from "./../../Assets/Images/technology/codeigniter.svg";
-import jQueryIcon from "./../../Assets/Images/technology/jQuery.svg";
-import JsIcon from "./../../Assets/Images/technology/Js.svg";
-import laravelIcon from "./../../Assets/Images/technology/laravel.svg";
-import linuxIcon from "./../../Assets/Images/technology/linux.svg";
-import nodeIcon from "./../../Assets/Images/technology/node.svg";
-import wordpressIcon from "./../../Assets/Images/technology/wordpress.svg";
-import phpIcon from "./../../Assets/Images/technology/php.svg";
-import cssIcon from "./../../Assets/Images/technology/css.svg";
+import reactIcon from "./../../assets/Images/technology/react.svg";
+import codeigniterIcon from "./../../assets/Images/technology/codeigniter.svg";
+import jQueryIcon from "./../../assets/Images/technology/jQuery.svg";
+import JsIcon from "./../../assets/Images/technology/Js.svg";
+import laravelIcon from "./../../assets/Images/technology/laravel.svg";
+import linuxIcon from "./../../assets/Images/technology/linux.svg";
+import nodeIcon from "./../../assets/Images/technology/node.svg";
+import wordpressIcon from "./../../assets/Images/technology/wordpress.svg";
+import phpIcon from "./../../assets/Images/technology/php.svg";
+import cssIcon from "./../../assets/Images/technology/css.svg";
 
 const Animate = () => {
   const [shuffledImages, setShuffledImages] = useState([]);
