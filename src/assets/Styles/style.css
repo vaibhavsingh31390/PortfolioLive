@@ -246,10 +246,17 @@
     .grid-buttons .contact--option--button .icon--container {
       height: 16px;
       width: 16px; }
+      .grid-buttons .contact--option--button .icon--container:focus,
+      .grid-buttons .contact--option--button .icon--container :active,
+      .grid-buttons .contact--option--button .icon--container :hover {
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important; }
+      .grid-buttons .contact--option--button .icon--container img {
+        background-color: transparent; }
     .grid-buttons .contact--option--button:focus,
     .grid-buttons .contact--option--button :active,
     .grid-buttons .contact--option--button :hover {
-      background-color: #eeeeee5a;
       border: none !important;
       color: #222831 !important;
       box-shadow: none !important; }

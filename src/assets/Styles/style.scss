@@ -332,12 +332,24 @@ $white-text-color: #ffffff;
         .icon--container {
             height: 16px;
             width: 16px;
+
+            &:focus,
+            :active,
+            :hover {
+                background-color: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+
+            img {
+                background-color: transparent;
+            }
         }
 
         &:focus,
         :active,
         :hover {
-            background-color: #eeeeee5a;
+            // background-color: #eeeeee5a;
             border: none !important;
             color: $secondary-bg-color !important;
             box-shadow: none !important;
