@@ -358,6 +358,14 @@ $white-text-color: #ffffff;
         &.active {
             background-color: $secondary-text-color !important;
             color: $white-text-color !important;
+
+            p {
+
+                &:hover {
+                    background-color: transparent !important;
+                    color: $white-text-color !important;
+                }
+            }
         }
     }
 }

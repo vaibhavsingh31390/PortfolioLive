@@ -263,3 +263,6 @@
     .grid-buttons .contact--option--button.active {
       background-color: #fc7114 !important;
       color: #ffffff !important; }
+      .grid-buttons .contact--option--button.active p:hover {
+        background-color: transparent !important;
+        color: #ffffff !important; }
