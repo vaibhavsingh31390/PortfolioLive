@@ -87,10 +87,7 @@
   .button--wrapper--Links {
     margin-top: 50px; }
   .heading--title {
-    font-size: 3rem; }
-  .contacted--message {
-    min-height: 25vh !important;
-    width: 90%; } }
+    font-size: 3rem; } }
 
 .contact-overlay {
   position: fixed;
@@ -106,11 +103,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fc7114;
-  padding: 2rem;
+  background-color: #ffffff;
+  padding: 2.5rem 1.5rem;
   border-radius: 10px;
-  z-index: 9998;
-  min-height: 50vh; }
+  z-index: 9998; }
+  @media (max-width: 767px) {
+    .contacted--message {
+      min-height: 25vh !important;
+      width: 90%; } }
 
 .close-form {
   padding: 0 !important;

@@ -90,7 +90,7 @@ const ContactForm = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://node-services.vercel.app/api/v1/send-mail",
+        "http://127.0.0.1:3000/api/v1/send-mail",
         formData
       );
       console.log("Email sent!", res);
@@ -139,8 +139,9 @@ const ContactForm = () => {
             <img src={CloseSvg} alt="close" />
           </Button>
           <h1 className="primary-text-color">
-            You will be contacted shortly !<br />
-            Sit back and relax 😎.
+            We'll be reaching out to you shortly.
+            <br />
+            Please take a moment to unwind 😎.
           </h1>
         </Card>
       ) : (

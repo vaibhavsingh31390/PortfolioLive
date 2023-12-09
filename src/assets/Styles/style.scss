@@ -125,10 +125,6 @@ $white-text-color: #ffffff;
         font-size: 3rem;
     }
 
-    .contacted--message {
-        min-height: 25vh !important;
-        width: 90%;
-    }
 }
 
 .contact-overlay {
@@ -146,11 +142,16 @@ $white-text-color: #ffffff;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: $secondary-text-color;
-    padding: 2rem;
+    background-color: $white-text-color;
+    padding: 2.5rem 1.5rem;
     border-radius: 10px;
     z-index: 9998;
-    min-height: 50vh;
+    // min-height: 50vh;
+
+    @media (max-width: 767px) {
+        min-height: 25vh !important;
+        width: 90%;
+    }
 }
 
 .close-form {
