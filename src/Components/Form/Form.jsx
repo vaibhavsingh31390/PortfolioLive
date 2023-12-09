@@ -77,16 +77,16 @@ const ContactForm = () => {
         toastId: "toaster--class", // Apply your custom class here
       });
     }
-    // if (formData.recaptchaValue === "") {
-    //   return toast.error("Please fill Captcha", {
-    //     position: toast.POSITION.TOP_RIGHT,
-    //     autoClose: 2000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     toastId: "toaster--class", // Apply your custom class here
-    //   });
-    // }
+    if (formData.recaptchaValue === "") {
+      return toast.error("Please fill Captcha", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        toastId: "toaster--class", // Apply your custom class here
+      });
+    }
     setLoading(true);
     try {
       const res = await axios.post(
@@ -258,12 +258,12 @@ const ContactForm = () => {
             </Col>
           </Row>
 
-          {/* <Form.Group controlId="formMessage" className="mb-2">
+          <Form.Group controlId="formMessage" className="mb-2">
             <ReCAPTCHA
               sitekey="6LdQZCopAAAAALAHhiieLq62K0NDoNNcg8OBm52l"
               onChange={handleRecaptchaChange}
             />
-          </Form.Group> */}
+          </Form.Group>
 
           <div className="d-flex">
             <Button
