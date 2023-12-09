@@ -1,8 +1,8 @@
 import Header from "./Components/Layout/Header.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import "./assets/Styles/style.css";
-// import "./assets/Styles/style.scss";
+// import "./assets/Styles/style.css";
+import "./assets/Styles/style.scss";
 import Wrapper from "./Components/Wrapper/Wrapper.jsx";
 import Home from "./Pages/Home.jsx";
 import { useContext } from "react";
