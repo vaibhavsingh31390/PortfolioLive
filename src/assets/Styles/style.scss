@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap");
 
 * {
     box-sizing: border-box;
@@ -6,9 +6,9 @@
     padding: 0;
 }
 
-$primary-bg-color: #EEEEEE;
+$primary-bg-color: #eeeeee;
 $secondary-bg-color: #222831;
-$primary-text-color: #393E46;
+$primary-text-color: #393e46;
 $secondary-text-color: #fc7114;
 $white-text-color: #ffffff;
 
@@ -23,26 +23,21 @@ $white-text-color: #ffffff;
 
 .primary-text-color {
     color: $primary-text-color;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 .secondary-text-color {
     color: $secondary-text-color;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 .white-text-color {
     color: $white-text-color;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 .navbar_Main {
     background-color: transparent;
-    // background: rgba(255, 255, 255, 0.15);
-    // backdrop-filter: blur(10px);
-    // box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    // backdrop-filter: blur(8px);
-    // border: 1px solid rgba(255, 255, 255, 0.18);
 
     .header_Btn_Contact,
     .header_Btn_Message {
@@ -73,6 +68,10 @@ $white-text-color: #ffffff;
     .hero-content {
         min-height: calc(100vh - 74px);
     }
+}
+
+.portfolio-wrapper {
+    margin-top: 100px;
 }
 
 .fallback-container {
@@ -111,6 +110,11 @@ $white-text-color: #ffffff;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-top: 0 !important;
+        position: fixed;
+        left: 0;
+        bottom: 35px;
+        padding: 0 28px;
     }
 
     .button--wrapper--Links {
@@ -119,6 +123,11 @@ $white-text-color: #ffffff;
 
     .heading--title {
         font-size: 3rem;
+    }
+
+    .contacted--message {
+        min-height: 25vh !important;
+        width: 90%;
     }
 }
 
@@ -145,9 +154,10 @@ $white-text-color: #ffffff;
 }
 
 .close-form {
+    padding: 0 !important;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 15px;
+    right: 15px;
     background-color: transparent !important;
     border: none !important;
 
@@ -158,44 +168,77 @@ $white-text-color: #ffffff;
 }
 
 .contact--form {
-    position: fixed;
-    width: 80%;
+    position: absolute;
+    width: 90%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: $secondary-text-color;
+    background-color: $white-text-color;
     padding: 2rem;
     border-radius: 10px;
     z-index: 9998;
 
     label {
+        color: $primary-text-color;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 14px;
+    }
 
-        font-family: 'Josefin Sans', sans-serif;
+    input,
+    textarea {
+        background-color: $white-text-color;
+        border-color: $secondary-text-color;
+        color: $secondary-bg-color;
+        font-size: 14px;
+
+        &:focus,
+        :active {
+            box-shadow: none !important;
+            border-color: $secondary-text-color;
+        }
     }
 
     @media (max-width: 767px) {
-        width: 95%;
+        // margin-top: 101px;
+        width: 100%;
+        // min-height: 100svh;
         padding: 1.5rem;
+        border-radius: 0px;
 
         .submit--form--btn {
             width: 100% !important;
         }
     }
 
-    Button {
-        background-color: $secondary-bg-color;
-        color: $secondary-text-color;
+    .submit--form--btn {
+        background-color: $secondary-text-color !important;
+        color: $secondary-bg-color !important;
         border: none;
         padding: 8px 15px;
+        border: 1px solid transparent !important;
         transition: 0.25s ease-in-out;
         display: flex;
         justify-content: center;
         align-items: center;
+        box-shadow: none !important;
 
         &:hover {
-            background-color: #ffffff;
-            color: $secondary-text-color;
+            border: 1px solid $secondary-text-color !important;
+            background-color: #ffffff !important;
+            color: $secondary-text-color !important;
         }
+
+        &:focus,
+        :active {
+            background-color: #ffffff !important;
+            border: 1px solid $secondary-text-color !important;
+            color: $secondary-text-color !important;
+            box-shadow: none !important;
+            border-color: $secondary-text-color;
+        }
+    }
+
+    Button {
 
         .loader-circle {
             width: 20px;
@@ -203,9 +246,9 @@ $white-text-color: #ffffff;
         }
     }
 
-
-
-
+    .mandatory {
+        color: #FF0000;
+    }
 }
 
 .Toastify__toast-container {
@@ -227,7 +270,80 @@ $white-text-color: #ffffff;
     }
 }
 
-
 #toaster--class .Toastify__icon {
     color: white !important;
+}
+
+.contact-overlay,
+.contact--form,
+.contacted--message {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.grid-buttons {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    gap: 15px;
+
+    @media (max-width: 767px) {
+        grid-template-columns: 2fr 2fr;
+    }
+
+    @media (max-width: 1118px) {
+        grid-template-columns: 2fr 2fr;
+    }
+
+    p {
+        font-size: 14px;
+        text-align: left;
+
+        &:hover {
+            background-color: transparent !important;
+
+        }
+    }
+
+    .contact--option--button {
+        background-color: #eeeeee5a !important;
+        color: $secondary-bg-color !important;
+        font-family: "Josefin Sans", sans-serif;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        line-height: 0;
+        gap: 5px;
+        padding: 12px 15px !important;
+        border: none !important;
+
+        @media (max-width: 767px) {
+            align-items: baseline;
+            line-height: 26px;
+        }
+
+        .icon--container {
+            height: 16px;
+            width: 16px;
+        }
+
+        &:focus,
+        :active,
+        :hover {
+            background-color: #eeeeee5a;
+            border: none !important;
+            color: $secondary-bg-color !important;
+            box-shadow: none !important;
+        }
+
+        &.active {
+            background-color: $secondary-text-color !important;
+            color: $white-text-color !important;
+        }
+    }
 }

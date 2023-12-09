@@ -1,15 +1,30 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useContext, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import contactContext from "../../store/contact-context";
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button, Card, Col, Row } from "react-bootstrap";
 import loader from "../../assets/Images/loader.svg";
 import ReCAPTCHA from "react-google-recaptcha";
 import CloseSvg from "../../assets/Images/Icons/close.svg";
 import axios from "axios";
 import { toast } from "react-toastify";
+import ServiceButton from "../Layout/ServiceButton";
+
+const services = [
+  "Development Services",
+  "Server Management",
+  "Bug Fixing Service",
+  "Design Services",
+  "SEO Optimization",
+  "Maintenance Solutions",
+  "Content Generation",
+  "Analytics Insights",
+  "Consultancy Services",
+];
 
 const ContactForm = () => {
   // eslint-disable-next-line no-unused-vars
+
   const [isActive, setIsActive] = useState(false);
   const ctx = useContext(contactContext);
   useEffect(() => {
@@ -23,6 +38,7 @@ const ContactForm = () => {
     name: "",
     email: "",
     phone: "",
+    type: "",
     message: "",
     recaptchaValue: "",
   });
@@ -35,6 +51,13 @@ const ContactForm = () => {
     });
   };
 
+  const handleTypeChange = (value) => {
+    setFormData({
+      ...formData,
+      type: value,
+    });
+  };
+
   const handleRecaptchaChange = (value) => {
     setFormData({
       ...formData,
@@ -44,7 +67,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.name === "" || formData.email === "") {
+    if (formData.name === "" || formData.email === "" || formData.type === "") {
       return toast.error("Please fill madatory fields", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 2000,
@@ -54,16 +77,16 @@ const ContactForm = () => {
         toastId: "toaster--class", // Apply your custom class here
       });
     }
-    if (formData.recaptchaValue === "") {
-      return toast.error("Please fill Captcha", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        toastId: "toaster--class", // Apply your custom class here
-      });
-    }
+    // if (formData.recaptchaValue === "") {
+    //   return toast.error("Please fill Captcha", {
+    //     position: toast.POSITION.TOP_RIGHT,
+    //     autoClose: 2000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     toastId: "toaster--class", // Apply your custom class here
+    //   });
+    // }
     setLoading(true);
     try {
       const res = await axios.post(
@@ -135,79 +158,111 @@ const ContactForm = () => {
           >
             <img src={CloseSvg} alt="close" />
           </Button>
-          <h1 className="white-text-color">Contact Form</h1>
+          <h1 className="secondary-text-color">
+            Unleash your business potential now.
+          </h1>
 
-          <Form.Group controlId="formName" className="mb-3">
-            <Form.Label style={{ color: "#222831" }}>Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter your name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              style={{
-                backgroundColor: "#FFFFFF",
-                borderColor: "#FC7114",
-                color: "#222831",
-              }}
-            />
-          </Form.Group>
+          <Row>
+            <Col sm={12} md={8}>
+              <Row>
+                <Col md={12} sm={12}>
+                  <p className="primary-text-color mb-2">
+                    IT Solutions tailored for every business stage, from
+                    startups to corporates.
+                  </p>
+                </Col>
+                <Col md={6} sm={12}>
+                  <Form.Group controlId="formName" className="mb-3">
+                    <Form.Label style={{ color: "#222831" }}>
+                      What is your full name ?{" "}
+                      <span className="mandatory"> *</span>
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter your full name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col md={6} sm={12}>
+                  <Form.Group controlId="formEmail" className="mb-3">
+                    <Form.Label style={{ color: "#222831" }}>
+                      Whats your email address ?
+                      <span className="mandatory"> *</span>
+                    </Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter your email address"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col md={12} sm={12}>
+                  <p className="primary-text-color mb-2">
+                    What sort of work you need help with ?
+                    <span className="mandatory"> *</span>
+                  </p>
 
-          <Form.Group controlId="formEmail" className="mb-3">
-            <Form.Label style={{ color: "#222831" }}>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter your email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              style={{
-                backgroundColor: "#FFFFFF",
-                borderColor: "#FC7114",
-                color: "#222831",
-              }}
-            />
-          </Form.Group>
+                  <div className="grid-buttons mb-3">
+                    {services.map((service) => (
+                      <ServiceButton
+                        key={service}
+                        value={service}
+                        name={service}
+                        handleTypeChange={handleTypeChange}
+                        activeButton={formData.type}
+                      />
+                    ))}
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+            <Col sm={12} md={4}>
+              <Row>
+                <Col md={12} sm={12}>
+                  <p className="primary-text-color mb-2">
+                    Tell us what you need help with, the purpose of this project
+                    and problems we are solving.
+                  </p>
+                </Col>
 
-          <Form.Group controlId="formEmail" className="mb-3">
-            <Form.Label style={{ color: "#222831" }}>Phone</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter your contact number"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              style={{
-                backgroundColor: "#FFFFFF",
-                borderColor: "#FC7114",
-                color: "#222831",
-              }}
-            />
-          </Form.Group>
+                <Col md={12} sm={12}>
+                  <Form.Group controlId="formMessage" className="mb-2">
+                    <Form.Control
+                      as="textarea"
+                      rows={7}
+                      placeholder="Tell us what's your project all about :)"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
 
-          <Form.Group controlId="formMessage" className="mb-2">
-            <Form.Label style={{ color: "#222831" }}>Message</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={4}
-              placeholder="Enter your message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              style={{
-                backgroundColor: "#FFFFFF",
-                borderColor: "#FC7114",
-                color: "#222831",
-              }}
-            />
-          </Form.Group>
+                  <Form.Group controlId="formEmail" className="mb-3">
+                    <Form.Label style={{ color: "#222831" }}>Phone</Form.Label>
+                    <Form.Control
+                      type="number"
+                      placeholder="Enter your contact number"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
 
-          <Form.Group controlId="formMessage" className="mb-2">
+          {/* <Form.Group controlId="formMessage" className="mb-2">
             <ReCAPTCHA
               sitekey="6LdQZCopAAAAALAHhiieLq62K0NDoNNcg8OBm52l"
               onChange={handleRecaptchaChange}
             />
-          </Form.Group>
+          </Form.Group> */}
 
           <div className="d-flex">
             <Button
