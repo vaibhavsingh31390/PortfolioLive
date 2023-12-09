@@ -8,7 +8,6 @@ import CloseSvg from "../../assets/Images/Icons/close.svg";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-
 const ContactForm = () => {
   // eslint-disable-next-line no-unused-vars
   const [isActive, setIsActive] = useState(false);
@@ -101,133 +100,135 @@ const ContactForm = () => {
 
   return (
     <>
-        {ctx.contacted ? (
-          <Card className="contacted--message d-flex justify-content-center align-item-center">
-            <Button
-              className="close-form ms-2"
-              onClick={() => {
-                ctx.setContactVisible(false);
-                setFormData(false);
-              }}
-            >
-              <img src={CloseSvg} alt="close" />
-            </Button>
-            <h1 className="primary-text-color">
-              You will be contacted shortly !<br />
-              Sit back and relax 😎.
-            </h1>
-          </Card>
-        ) : (
-          <Form
-            className={`contact--form ${isActive ? "active" : ""}`}
-            onSubmit={handleSubmit}
-            style={{ color: "#222831" }}
+      {ctx.contacted ? (
+        <Card
+          className={`contacted--message d-flex justify-content-center align-item-center ${
+            isActive ? "active" : ""
+          }`}
+        >
+          <Button
+            className="close-form ms-2"
+            onClick={() => {
+              ctx.setContactVisible(false);
+              setFormData(false);
+            }}
           >
-            <Button
-              className="close-form ms-2"
-              onClick={() => {
-                ctx.setContactVisible(false);
-                setFormData(false);
+            <img src={CloseSvg} alt="close" />
+          </Button>
+          <h1 className="primary-text-color">
+            You will be contacted shortly !<br />
+            Sit back and relax 😎.
+          </h1>
+        </Card>
+      ) : (
+        <Form
+          className={`contact--form ${isActive ? "active" : ""}`}
+          onSubmit={handleSubmit}
+          style={{ color: "#222831" }}
+        >
+          <Button
+            className="close-form ms-2"
+            onClick={() => {
+              ctx.setContactVisible(false);
+              setFormData(false);
+            }}
+          >
+            <img src={CloseSvg} alt="close" />
+          </Button>
+          <h1 className="white-text-color">Contact Form</h1>
+
+          <Form.Group controlId="formName" className="mb-3">
+            <Form.Label style={{ color: "#222831" }}>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              style={{
+                backgroundColor: "#FFFFFF",
+                borderColor: "#FC7114",
+                color: "#222831",
               }}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formEmail" className="mb-3">
+            <Form.Label style={{ color: "#222831" }}>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter your email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              style={{
+                backgroundColor: "#FFFFFF",
+                borderColor: "#FC7114",
+                color: "#222831",
+              }}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formEmail" className="mb-3">
+            <Form.Label style={{ color: "#222831" }}>Phone</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter your contact number"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              style={{
+                backgroundColor: "#FFFFFF",
+                borderColor: "#FC7114",
+                color: "#222831",
+              }}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formMessage" className="mb-2">
+            <Form.Label style={{ color: "#222831" }}>Message</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={4}
+              placeholder="Enter your message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              style={{
+                backgroundColor: "#FFFFFF",
+                borderColor: "#FC7114",
+                color: "#222831",
+              }}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formMessage" className="mb-2">
+            <ReCAPTCHA
+              sitekey="6LdQZCopAAAAALAHhiieLq62K0NDoNNcg8OBm52l"
+              onChange={handleRecaptchaChange}
+            />
+          </Form.Group>
+
+          <div className="d-flex">
+            <Button
+              className="w-25 submit--form--btn"
+              variant="primary"
+              type="submit"
             >
-              <img src={CloseSvg} alt="close" />
+              Submit
+              {loading ? (
+                <img
+                  src={loader}
+                  alt="loadin.."
+                  className="loader-circle ms-2"
+                />
+              ) : (
+                ""
+              )}
             </Button>
-            <h1 className="white-text-color">Contact Form</h1>
-
-            <Form.Group controlId="formName" className="mb-3">
-              <Form.Label style={{ color: "#222831" }}>Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter your name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  borderColor: "#FC7114",
-                  color: "#222831",
-                }}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formEmail" className="mb-3">
-              <Form.Label style={{ color: "#222831" }}>
-                Email address
-              </Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter your email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  borderColor: "#FC7114",
-                  color: "#222831",
-                }}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formEmail" className="mb-3">
-              <Form.Label style={{ color: "#222831" }}>Phone</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Enter your contact number"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  borderColor: "#FC7114",
-                  color: "#222831",
-                }}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formMessage" className="mb-2">
-              <Form.Label style={{ color: "#222831" }}>Message</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={4}
-                placeholder="Enter your message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  borderColor: "#FC7114",
-                  color: "#222831",
-                }}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formMessage" className="mb-2">
-              <ReCAPTCHA
-                sitekey="6LdQZCopAAAAALAHhiieLq62K0NDoNNcg8OBm52l" 
-                onChange={handleRecaptchaChange}
-              />
-            </Form.Group>
-
-            <div className="d-flex">
-              <Button
-                className="w-25 submit--form--btn"
-                variant="primary"
-                type="submit"
-              >
-                Submit
-                {loading ? (
-                  <img
-                    src={loader}
-                    alt="loadin.."
-                    className="loader-circle ms-2"
-                  />
-                ) : (
-                  ""
-                )}
-              </Button>
-            </div>
-          </Form>
-        )}
+          </div>
+        </Form>
+      )}
     </>
   );
 };
