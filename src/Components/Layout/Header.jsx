@@ -1,10 +1,20 @@
 import { Navbar, Container, Button } from "react-bootstrap";
 import logo from "./../../assets/Images/logo.png";
+import resume from "./../../assets/Vaibhav_Singh_Resume.pdf";
 import { useContext } from "react";
 import contactContext from "../../store/contact-context";
 
 const Header = () => {
   const ctx = useContext(contactContext);
+
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = resume;
+    link.setAttribute("download", "Vaibhav_Singh_Resume.pdf");
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
   return (
     <Navbar expand="lg" className="navbar_Main py-3">
       <Container>
@@ -18,7 +28,9 @@ const Header = () => {
             className="d-inline-block align-top"
             alt="Logo"
           />
-          <p className="ms-2 mb-0 secondary-text-color fw-bold">Tony</p>
+          <p className="ms-2 mb-0 secondary-text-color fw-bold">
+            Vaibhav Singh
+          </p>
         </Navbar.Brand>
 
         <div className="d-flex align-items-center button--wrapper">
@@ -29,7 +41,14 @@ const Header = () => {
               ctx.setContactVisible(true);
             }}
           >
-            Contact Us
+            Contact
+          </Button>
+          <Button
+            variant="secondary"
+            className="header_Btn_Message ms-3"
+            onClick={handleDownload}
+          >
+            Download CV
           </Button>
           {/* <Button variant="secondary" className="header_Btn_Message">
             Quick Message

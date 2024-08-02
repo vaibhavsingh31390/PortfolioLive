@@ -23,19 +23,22 @@ const Home = () => {
       <Row className="align-items-end">
         <Col md={12} sm={12}>
           <h1 className="secondary-text-color heading--title">
-            Building Dreams through Code & Creativity for Over a Decade.
+            Building Dreams through <br></br>Code & Creativity.
           </h1>
           <div className="Links--wrapper mt-4">
-            <ButtonLink
+            {/* <ButtonLink
               icon={Fiveer}
               ntab={true}
               link={"https://www.fiverr.com/tonysimons"}
+            /> */}
+            <ButtonLink
+              icon={Email}
+              link={"mailto:vaibhavsingh.hqlamps@gmail.com"}
             />
-            <ButtonLink icon={Email} link={"mailto:Tonysimons619@gmail.com"} />
             <ButtonLink
               icon={WhatsApp}
               ntab={true}
-              link={"https://wa.link/jzlrxh"}
+              link={"https://wa.link/51v7mx"}
             />
             <ButtonLink icon={Telegram} link={"#"} />
           </div>
