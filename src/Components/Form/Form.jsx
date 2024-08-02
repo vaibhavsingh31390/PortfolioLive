@@ -90,7 +90,7 @@ const ContactForm = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://127.0.0.1:3000/api/v1/send-mail",
+        "http://65.1.132.5:8003/api/v1/send-mail",
         formData
       );
       console.log("Email sent!", res);
