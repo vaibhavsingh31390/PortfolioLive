@@ -77,16 +77,16 @@ const ContactForm = () => {
         toastId: "toaster--class", // Apply your custom class here
       });
     }
-    if (formData.recaptchaValue === "") {
-      return toast.error("Please fill Captcha", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        toastId: "toaster--class", // Apply your custom class here
-      });
-    }
+    // if (formData.recaptchaValue === "") {
+    //   return toast.error("Please fill Captcha", {
+    //     position: toast.POSITION.TOP_RIGHT,
+    //     autoClose: 2000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     toastId: "toaster--class", // Apply your custom class here
+    //   });
+    // }
     setLoading(true);
     try {
       const res = await axios.post(
